@@ -1,4 +1,4 @@
-FROM fedora:32
+FROM fedora:latest
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
@@ -13,7 +13,7 @@ RUN set -eux; \
 RUN dnf -y install musl-gcc
 RUN dnf -y install rpm-build
 RUN dnf -y install systemd-rpm-macros
-ENV CC=musl-gcc \
+ENV CC=/usr/bin/musl-gcc \
     PREFIX=/musl \
     PATH=/usr/local/bin:/root/.cargo/bin:$PATH \
     PKG_CONFIG_PATH=/usr/local/lib/pkgconfig \
@@ -23,7 +23,7 @@ RUN set -eux; \
     rustup target add x86_64-unknown-linux-musl; \
     cargo install cargo-rpm;
 
-ENV CARGO_BUILD_TARGET=x86_64-unknown-linux-musl
+# ENV CARGO_BUILD_TARGET=x86_64-unknown-linux-musl
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

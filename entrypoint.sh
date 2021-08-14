@@ -11,8 +11,14 @@ cargo --version
 
 # go to the repo root
 cd $GITHUB_WORKSPACE
+PATH=/usr/local/bin:/root/.cargo/bin:/usr/local/cargo/bin/cargo:$PATH
+whoami
+printenv
+find .
 mkdir -p target
 chmod 0777 ./target
 export CARGO_TARGET_DIR=$GITHUB_WORKSPACE/target
-sh -c "$*"
+which cargo || true
+/usr/local/cargo/bin/cargo --help || true
+eval "$*"
 chmod 0777 ./target

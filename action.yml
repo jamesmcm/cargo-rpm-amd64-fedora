@@ -11,6 +11,6 @@ inputs:
     default: 'cargo rpm build -v'
 runs:
   using: 'docker'
-  image: 'docker://jamesmcm03/cargo-rpm-amd64-fedora:20210814'
+  image: 'docker://jamesmcm03/cargo-rpm-amd64-fedora:20210814v2'
   args:
     - ${{ inputs.cmd }}

@@ -8,7 +8,7 @@ RUN set -eux; \
     dnf -y install musl-devel openssl-devel; \
     dnf -y groupinstall 'Development Tools'; \
 	curl -o /tmp/install_rust.sh https://sh.rustup.rs; \
-	sh /tmp/install_rust.sh -y --default-toolchain 1.47.0;
+	sh /tmp/install_rust.sh -y ;
 
 RUN dnf -y install musl-gcc
 RUN dnf -y install rpm-build

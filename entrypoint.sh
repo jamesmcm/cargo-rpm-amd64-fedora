@@ -6,6 +6,9 @@ set -eux
 ln -s /root/.cargo $HOME/.cargo
 ln -s /root/.rustup $HOME/.rustup
 
+rustc --version
+cargo --version
+
 # go to the repo root
 cd $GITHUB_WORKSPACE
 mkdir -p target

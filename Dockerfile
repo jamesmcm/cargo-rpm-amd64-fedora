@@ -8,7 +8,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 RUN set -eux; \
     dnf -y install openssl-devel; \
-    dnf -y groupinstall 'Development Tools'; \
+    dnf -y install @development-tools; \
 	curl -o /tmp/install_rust.sh https://sh.rustup.rs; \
 	sh /tmp/install_rust.sh -y ;
 

@@ -7,10 +7,10 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 
 RUN set -eux; \
-    dnf -y install openssl-devel; \
+	dnf -y install openssl-devel; \
     dnf -y install @development-tools; \
 	curl -o /tmp/install_rust.sh https://sh.rustup.rs; \
-	sh /tmp/install_rust.sh -y ;
+	sh /tmp/install_rust.sh -y --default-toolchain stable --profile minimal ;
 
 RUN dnf -y install rpm-build
 RUN dnf -y install systemd-rpm-macros

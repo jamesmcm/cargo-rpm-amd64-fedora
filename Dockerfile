@@ -18,7 +18,7 @@ ENV PATH=/usr/local/bin:/root/.cargo/bin:$PATH \
     PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
 RUN set -eux; \
-    cargo install cargo-rpm;
+    cargo install cargo-generate-rpm;
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
